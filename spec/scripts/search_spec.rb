@@ -16,5 +16,12 @@ require 'rails_helper'
   # duration before connection in trips
 
 describe 'search information' do
+  let(:search) { file_fixture('search.xml').read }
+  let(:results) { JSON.parse(search) }
 
+  describe 'search results' do
+    it 'has the correct number of search results' do
+      expect(results.count).to eq(3)
+    end
+  end
 end
