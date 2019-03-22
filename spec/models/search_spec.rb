@@ -5,7 +5,7 @@ require 'rails_helper'
 # SEARCH
   # *** number of search results in sample xml
   # *** number of train changes (connections)
-  # fare names and prices; compare fares in different connections (one connection might have first class and another would not)
+  # *** fare names and prices; compare fares in different connections (one connection might have first class and another would not)
   # add value of connection, determine cheapest in sample data
   # check time for a full trip, determine fastest in sample data
 # TIME
@@ -14,7 +14,7 @@ require 'rails_helper'
   # duration of connection in hours and minutes
   # duration before connection in trips
 
-describe 'search information' do
+describe 'search' do
   let(:file) { file_fixture('search.xml') }
   let(:search) { Search.new(file) }
 
@@ -64,6 +64,14 @@ describe 'search information' do
             end
           end
         end
+      end
+    end
+
+    describe '#cheapest' do
+      it 'returns the cheapest trip in the search' do
+        # by summing the cheaper of the fares for a connection,
+        # we can determine that the cheapest is the last result
+        expect(search.cheapest).to eq(search.result.last)
       end
     end
   end
