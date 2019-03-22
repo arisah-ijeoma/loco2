@@ -15,7 +15,7 @@ class Search
     details = {}
 
     results.each do |result|
-      details[result['ID']] = { connections: result['Connections']['Connection'] }
+      details[result['ID']] = result['Connections']['Connection']
     end
 
     details
