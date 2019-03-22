@@ -24,20 +24,19 @@ describe 'search information' do
     end
 
     describe 'trips' do
-      let(:connections) { search.connections[trip] }
+      let(:details) { search.trip_details[trip] }
 
       context 'trip 1' do
         let(:trip) { search.results.first['ID'] }
 
         describe 'connections' do
           it 'has the correct number of connections' do
-            expect(connections).to eq(2)
+            expect(details[:connections].count).to eq(2)
           end
-        end
 
-        describe 'fare' do
-          it 'returns the correct fare for trip' do
-
+          describe 'fare' do
+            it 'returns the correct fare for trip' do
+            end
           end
         end
       end
@@ -47,13 +46,13 @@ describe 'search information' do
 
         describe 'connections' do
           it 'has the correct number of connections' do
-            expect(connections).to eq(3)
+            expect(details[:connections].count).to eq(3)
           end
-        end
 
-        describe 'fare' do
-          it 'returns the correct fare for trip' do
+          describe 'fare' do
+            it 'returns the correct fare for trip' do
 
+            end
           end
         end
       end

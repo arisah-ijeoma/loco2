@@ -11,14 +11,14 @@ class Search
     search_hash['SearchResult']
   end
 
-  def connections
-    train_changes = {}
+  def trip_details
+    details = {}
 
     results.each do |result|
-      train_changes[result['ID']] = result['Connections']['Connection'].count
+      details[result['ID']] = { connections: result['Connections']['Connection'] }
     end
 
-    train_changes
+    details
   end
 
   def search_hash
