@@ -71,7 +71,7 @@ describe 'search' do
       it 'returns the cheapest trip in the search' do
         # by summing the cheaper of the fares for a connection,
         # we can determine that the cheapest is the last result
-        expect(search.cheapest).to eq(search.result.last)
+        expect(search.cheapest).to eq(search.results.last)
       end
     end
   end
