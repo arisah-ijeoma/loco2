@@ -24,7 +24,8 @@ describe 'search information' do
     end
 
     describe 'trips' do
-      let(:connections) { search.trip_details[trip] }
+      let(:connections) { search.connections[trip] }
+      let(:fares) { search.fares }
 
       context 'trip 1' do
         let(:trip) { search.results.first['ID'] }
@@ -35,10 +36,12 @@ describe 'search information' do
           end
 
           describe 'fare' do
+            let(:train) { connections.first['TrainName'] }
+
             it 'returns the correct fare type and price for trip' do
-              expect(connections.first['Fares']['Fare'].first['Name']).to eq('Standard Class')
-              expect(connections.first['Fares']['Fare'].last['Price']['Value']).not_to eq('79.00')
-              expect(connections.first['Fares']['Fare'].last['Price']['Value']).to eq('159.00')
+              expect(fares[train].first['Name']).to eq('Standard Class')
+              expect(fares[train].last['Price']['Value']).not_to eq('79.00')
+              expect(fares[train].last['Price']['Value']).to eq('159.00')
             end
           end
         end
@@ -53,9 +56,11 @@ describe 'search information' do
           end
 
           describe 'fare' do
+            let(:train) { connections.last['TrainName'] }
+
             it 'returns the correct fare type and price for trip' do
-              expect(connections.last['Fares']['Fare'].last['Name']).to eq('First Class')
-              expect(connections.last['Fares']['Fare'].last['Price']['Value']).to eq('30.00')
+              expect(fares[train].last['Name']).to eq('First Class')
+              expect(fares[train].last['Price']['Value']).to eq('30.00')
             end
           end
         end

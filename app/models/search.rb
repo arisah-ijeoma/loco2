@@ -11,11 +11,23 @@ class Search
     search_hash['SearchResult']
   end
 
-  def trip_details
+  def connections
     details = {}
 
     results.each do |result|
       details[result['ID']] = result['Connections']['Connection']
+    end
+
+    details
+  end
+
+  def fares
+    details = {}
+    x = 0
+
+    connections.each do |id, connection|
+      details[connection[x]['TrainName']] = connection[x]['Fares']['Fare']
+      x += 1
     end
 
     details
