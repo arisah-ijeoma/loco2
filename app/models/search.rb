@@ -25,7 +25,7 @@ class Search
     details = {}
     x = 0
 
-    connections.each do |id, connection|
+    connections.values.each do |connection|
       details[connection[x]['TrainName']] = connection[x]['Fares']['Fare']
       x += 1
     end
