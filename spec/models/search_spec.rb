@@ -35,11 +35,11 @@ describe 'search information' do
           end
 
           describe 'fare' do
-            # it 'returns the correct fare type and price for trip' do
-            #   expect(details[:connections][:fares].first.name).to eq('Standard Class')
-            #   expect(details[:connections][:fares].last.price).not_to eq('79')
-            #   expect(details[:connections][:fares].last.price).to eq('159')
-            # end
+            it 'returns the correct fare type and price for trip' do
+              expect(connections.first['Fares']['Fare'].first['Name']).to eq('Standard Class')
+              expect(connections.first['Fares']['Fare'].last['Price']['Value']).not_to eq('79.00')
+              expect(connections.first['Fares']['Fare'].last['Price']['Value']).to eq('159.00')
+            end
           end
         end
       end
@@ -53,10 +53,10 @@ describe 'search information' do
           end
 
           describe 'fare' do
-            # it 'returns the correct fare type and price for trip' do
-            #   expect(details[:connections][:fares].last.name).to eq('First Class')
-            #   expect(details[:connections][:fares].last.price).to eq('75')
-            # end
+            it 'returns the correct fare type and price for trip' do
+              expect(connections.last['Fares']['Fare'].last['Name']).to eq('First Class')
+              expect(connections.last['Fares']['Fare'].last['Price']['Value']).to eq('30.00')
+            end
           end
         end
       end
