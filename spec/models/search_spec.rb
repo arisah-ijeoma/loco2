@@ -17,16 +17,21 @@ require 'rails_helper'
 
 describe 'search information' do
   let(:file) { file_fixture('search.xml') }
-  let(:search_results) { Search.new(file).results }
+  let(:search) { Search.new(file) }
 
   describe 'search results' do
     it 'has the correct number of search results' do
-      expect(search_results.count).to eq(3)
+      expect(search.results.count).to eq(3)
     end
 
-    it 'has the correct number of connections per trip' do
-      expect(search_results.first.connections.count).to eq(2)
-      expect(search_results.last.connections.count).to eq(3)
+    describe 'connections' do
+      let(:first_trip) { search.results.first['ID'] }
+      let(:last_trip) { search.results.last['ID'] }
+
+      it 'has the correct number of connections per trip' do
+        expect(search.connections[first_trip]).to eq(2)
+        expect(search.connections[last_trip]).to eq(3)
+      end
     end
   end
 end
