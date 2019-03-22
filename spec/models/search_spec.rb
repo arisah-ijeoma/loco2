@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 # SEARCH
-  # number of search results in sample xml
+  # *** number of search results in sample xml
   # number of train changes (connections)
   # fare names and prices; compare fares in different connections (one connection
   # might have first class and another would not)
@@ -17,11 +17,16 @@ require 'rails_helper'
 
 describe 'search information' do
   let(:file) { file_fixture('search.xml') }
-  let(:search) { Search.new(file) }
+  let(:search_results) { Search.new(file).results }
 
   describe 'search results' do
     it 'has the correct number of search results' do
-      expect(search.results.count).to eq(3)
+      expect(search_results.count).to eq(3)
+    end
+
+    it 'has the correct number of connections per trip' do
+      expect(search_results.first.connections.count).to eq(2)
+      expect(search_results.last.connections.count).to eq(3)
     end
   end
 end
