@@ -11,6 +11,16 @@ class Search
     search_hash['SearchResult']
   end
 
+  def connections
+    train_changes = {}
+
+    results.each do |result|
+      train_changes[result['ID']] = result['Connections']['Connection'].count
+    end
+
+    train_changes
+  end
+
   def search_hash
     Hash.from_xml(file_content)['SearchResults']
   end
