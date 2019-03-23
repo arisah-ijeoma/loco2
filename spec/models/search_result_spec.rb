@@ -33,4 +33,10 @@ describe 'search results' do
       expect(search_result.connections.count).to eq(3)
     end
   end
+
+  describe '#cheapest' do
+    it 'returns the cheapest search result' do
+      expect(SearchResult.cheapest).to eq(results.third)
+    end
+  end
 end
