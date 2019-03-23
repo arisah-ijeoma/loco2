@@ -13,28 +13,6 @@ class Search
     end
   end
 
-  def connections
-    details = {}
-
-    results.each do |result|
-      details[result['ID']] = result['Connections']['Connection']
-    end
-
-    details
-  end
-
-  def fares
-    details = {}
-    x = 0
-
-    connections.values.each do |connection|
-      details[connection[x]['TrainName']] = connection[x]['Fares']['Fare']
-      x += 1
-    end
-
-    details
-  end
-
   def search_hash
     Hash.from_xml(file_content)['SearchResults']
   end
