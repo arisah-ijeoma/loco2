@@ -8,7 +8,9 @@ class Search
   end
 
   def results
-    search_hash['SearchResult']
+    search_hash['SearchResult'].each do |result|
+      SearchResult.new(result)
+    end
   end
 
   def connections
