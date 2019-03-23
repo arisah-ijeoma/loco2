@@ -36,7 +36,7 @@ describe 'search' do
 
   describe '#quickest' do
     it 'returns the cheapest search result' do
-      expect(search.quickest).to eq(search.results.second)
+      expect(search.quickest).to eq(search.results.first)
     end
   end
 end
