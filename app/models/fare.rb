@@ -5,6 +5,6 @@ class Fare
 
   def initialize(fare)
     @name = fare['Name']
-    @price = fare['Price']['Value']
+    @price = fare['Price']['Value'].to_f
   end
 end

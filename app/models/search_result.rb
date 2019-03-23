@@ -9,4 +9,10 @@ class SearchResult
       Connection.new(cn)
     end
   end
+
+  def minimum_fares
+    connections.map do |cn|
+      cn.fares.map(&:price).min
+    end.inject(:+)
+  end
 end
