@@ -13,6 +13,8 @@ require 'rails_helper'
     # use the date to determine what the time should be calculated
   # duration of connection in hours and minutes
   # duration before connection in trips
+#
+# refactor tests after work completion
 
 describe 'search' do
   let(:file) { file_fixture('search.xml') }
