@@ -6,7 +6,7 @@ require 'rails_helper'
   # *** number of search results in sample xml
   # *** number of train changes (connections)
   # *** fare names and prices; compare fares in different connections (one connection might have first class and another would not)
-  # add value of connection, determine cheapest in sample data
+  # *** add value of connection, determine cheapest in sample data
   # check time for a full trip, determine fastest in sample data
 # TIME
   # arrival and departure time are in local time
@@ -27,6 +27,8 @@ describe 'search' do
   end
 
   describe '#cheapest' do
+    # by summing up the cheaper fares on the connections,
+    # we can come up with the cheapest
     it 'returns the cheapest search result' do
       expect(search.cheapest).to eq(search.results.third)
     end
