@@ -15,4 +15,12 @@ class SearchResult
       cn.fares.map(&:price).min
     end.inject(:+)
   end
+
+  def fastest_time
+    connections.map do |cn|
+      arrival = DateTime.parse(cn.arrival_time)
+      departure = DateTime.parse(cn.departure_time)
+      [arrival.to_time.utc, departure.to_time.utc].inject(:-)
+    end.inject(:+)
+  end
 end
