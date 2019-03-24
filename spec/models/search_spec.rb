@@ -36,9 +36,9 @@ describe 'search' do
 
   describe '#quickest' do
     # by summing up the differences between arrival and departure for each
-    # connection, we can come up with the quickest
+    # connection along with the overlay, we can come up with the quickest
     it 'returns the quickest search result' do
-      expect(search.quickest).to eq(search.results.first)
+      expect(search.quickest).to eq(search.results.second)
     end
   end
 end
