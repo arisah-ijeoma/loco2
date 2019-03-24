@@ -35,6 +35,10 @@ class SearchResult
   end
 
   def total_trip_time
-    time_conversion(trip_time + overlay.inject(:+))
+    trip_time + overlay.inject(:+)
+  end
+
+  def formatted_total_trip_time
+    time_conversion(total_trip_time)
   end
 end
