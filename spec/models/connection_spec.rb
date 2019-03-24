@@ -27,12 +27,6 @@ describe 'connections' do
           expect(connection.duration_in_hrs_mins).to eq('2 hour(s) and 15 minute(s)')
         end
       end
-
-      describe 'time before connection 2' do
-        it 'has correct data' do
-          expect(connection.time_before_next_connection).to eq('3 hour(s) and 22 minute(s)')
-        end
-      end
     end
 
     describe 'connection 2' do
@@ -50,12 +44,6 @@ describe 'connections' do
       describe '#duration_in_hrs_mins' do
         it 'converts duration correctly' do
           expect(connection.duration_in_hrs_mins).to eq('8 hour(s) and 23 minute(s)')
-        end
-      end
-
-      describe 'time before connection 3' do
-        it 'has correct data' do
-          expect(connection.time_before_next_connection).to eq('3 hour(s) and 9 minute(s)')
         end
       end
     end

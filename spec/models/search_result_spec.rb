@@ -6,13 +6,22 @@ describe 'search results' do
   let(:file) { file_fixture('search.xml') }
   let(:results) { Search.new(file).results }
   let(:search_result) { SearchResult.new(result) }
+  let(:connections) { search_result.connections }
 
   describe 'result 1' do
     let(:result) { results.first }
 
     it 'has correct details' do
       expect(search_result.id).to eq('F4S1DS')
-      expect(search_result.connections.count).to eq(2)
+      expect(connections.count).to eq(2)
+    end
+
+    # the first result has 2 connections
+
+    describe 'time before connection 2' do
+      it 'has correct data' do
+        expect(search_result.time_before_next_connection).to eq('1 hour(s) and 15 minute(s)')
+      end
     end
   end
 
@@ -21,7 +30,17 @@ describe 'search results' do
 
     it 'has correct details' do
       expect(search_result.id).to eq('L2FSF4')
-      expect(search_result.connections.count).to eq(2)
+      expect(connections.count).to eq(2)
+    end
+
+    describe 'time before next connection' do
+      # the second result has 2 connections
+
+      describe 'time before connection 2' do
+        it 'has correct data' do
+          expect(search_result.time_before_next_connection).to eq('0 hour(s) and 44 minute(s)')
+        end
+      end
     end
   end
 
@@ -30,7 +49,23 @@ describe 'search results' do
 
     it 'has correct details' do
       expect(search_result.id).to eq('D42GVV')
-      expect(search_result.connections.count).to eq(3)
+      expect(connections.count).to eq(3)
+    end
+
+    describe 'time before next connection' do
+      # the third result has 3 connections
+
+      describe 'time before connection 2' do
+        it 'has correct data' do
+          expect(search_result.time_before_next_connection).to eq('3 hour(s) and 22 minute(s)')
+        end
+      end
+
+      describe 'time before connection 3' do
+        it 'has correct data' do
+          expect(search_result.time_before_next_connection).to eq('3 hour(s) and 9 minute(s)')
+        end
+      end
     end
   end
 end
