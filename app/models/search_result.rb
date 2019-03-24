@@ -23,6 +23,7 @@ class SearchResult
     end.inject(:+)
   end
 
+  #  TODO - account for when there is no overlay
   def overlay
     connections.map.with_index do |cn, i|
       next if i.zero?
