@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SearchResult
+  include Utilities
   attr_accessor :id, :connections
 
   def initialize(search_result)
@@ -20,5 +21,14 @@ class SearchResult
     connections.map do |cn|
       [cn.arrival, cn.departure].inject(:-)
     end.inject(:+)
+  end
+
+  def overlay
+    overlay = connections.map.with_index do |cn, i|
+      next if i.zero?
+      [cn.departure, connections[i - 1].arrival].inject(:-)
+    end.compact
+
+    overlay.map { |item| time_conversion(item) }
   end
 end

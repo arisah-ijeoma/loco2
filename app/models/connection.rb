@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Connection
+  include Utilities
   attr_accessor :start, :finish, :departure_time, :arrival_time, :train_name, :fares
 
   def initialize(connection)
@@ -25,13 +26,5 @@ class Connection
   def duration_in_hrs_mins
     duration = arrival - departure
     time_conversion(duration)
-  end
-
-  private
-
-  def time_conversion(duration)
-    hours = (duration / 3600).to_i
-    minutes = ((duration / 60) % 60).to_i
-    "#{hours} hour(s) and #{minutes} minute(s)"
   end
 end
