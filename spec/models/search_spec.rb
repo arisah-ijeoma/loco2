@@ -7,7 +7,7 @@ require 'rails_helper'
   # *** number of train changes (connections)
   # *** fare names and prices; compare fares in different connections (one connection might have first class and another would not)
   # *** add value of connection, determine cheapest in sample data
-  # check time for a full trip, determine fastest in sample data
+  # *** check time for a full trip, determine fastest in sample data
 # TIME
   # arrival and departure time are in local time
     # use the date to determine what the time should be calculated

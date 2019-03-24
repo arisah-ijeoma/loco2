@@ -17,7 +17,7 @@ describe 'fares' do
 
         it 'has the correct details' do
           expect(fare.name).to eq('Standard Class')
-          expect(fare.price).to eq('69.00')
+          expect(fare.price).to eq(69)
         end
       end
 
@@ -26,7 +26,7 @@ describe 'fares' do
 
         it 'has the correct details' do
           expect(fare.name).to eq('Standard Premier')
-          expect(fare.price).to eq('179.00')
+          expect(fare.price).to eq(179)
         end
       end
     end
