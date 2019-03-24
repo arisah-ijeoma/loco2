@@ -21,6 +21,12 @@ describe 'connections' do
         expect(connection.train_name).to eq('Eurostar')
         expect(connection.fares.count).to eq(2)
       end
+
+      describe '#duration_in_hrs_mins' do
+        it 'converts duration correctly' do
+          expect(connection.duration_in_hrs_mins).to eq('2:15')
+        end
+      end
     end
 
     describe 'connection 2' do
@@ -34,6 +40,12 @@ describe 'connections' do
         expect(connection.train_name).to eq('Intercités de Nuit')
         expect(connection.fares.count).to eq(2)
       end
+
+      describe '#duration_in_hrs_mins' do
+        it 'converts duration correctly' do
+          expect(connection.duration_in_hrs_mins).to eq('8:23')
+        end
+      end
     end
 
     describe 'connection 3' do
@@ -46,6 +58,12 @@ describe 'connections' do
         expect(connection.arrival_time).to eq('2015-07-12T11:19:00+02:00')
         expect(connection.train_name).to eq('AVE Class 100')
         expect(connection.fares.count).to eq(2)
+      end
+
+      describe '#duration_in_hrs_mins' do
+        it 'converts duration correctly' do
+          expect(connection.duration_in_hrs_mins).to eq('1:22')
+        end
       end
     end
   end
