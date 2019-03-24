@@ -32,6 +32,6 @@ class Connection
   def time_conversion(duration)
     hours = (duration / 3600).to_i
     minutes = ((duration / 60) % 60).to_i
-    "#{hours}:#{minutes}"
+    "#{hours} hour(s) and #{minutes} minute(s)"
   end
 end

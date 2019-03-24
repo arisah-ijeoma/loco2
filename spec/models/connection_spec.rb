@@ -62,7 +62,7 @@ describe 'connections' do
 
       describe '#duration_in_hrs_mins' do
         it 'converts duration correctly' do
-          expect(connection.duration_in_hrs_mins).to eq('1 hour(s) and 22 minutes(s)')
+          expect(connection.duration_in_hrs_mins).to eq('1 hour(s) and 22 minute(s)')
         end
       end
     end
