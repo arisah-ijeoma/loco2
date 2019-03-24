@@ -33,7 +33,7 @@ class Search
   def quickest
     # returns the quickest route along with the search result index
     min_index = search_hash['SearchResult'].map do |result|
-      SearchResult.new(result).fastest_time
+      SearchResult.new(result).trip_time
     end.each_with_index.min
 
     search_hash['SearchResult'][min_index.last]

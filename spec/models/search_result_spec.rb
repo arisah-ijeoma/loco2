@@ -25,7 +25,7 @@ describe 'search results' do
 
     describe 'journey duration' do
       it 'returns correct data' do
-        expect(search_result.total_time).to eq('9 hour(s) and 54 minute(s)')
+        expect(search_result.total_trip_time).to eq('9 hour(s) and 54 minute(s)')
       end
     end
   end
@@ -47,7 +47,7 @@ describe 'search results' do
 
     describe 'journey duration' do
       it 'returns correct data' do
-        expect(search_result.total_time).to eq('9 hour(s) and 45 minute(s)')
+        expect(search_result.total_trip_time).to eq('9 hour(s) and 45 minute(s)')
       end
     end
   end
@@ -77,7 +77,7 @@ describe 'search results' do
 
     describe 'journey duration' do
       it 'returns correct data' do
-        expect(search_result.total_time).to eq('18 hour(s) and 31 minute(s)')
+        expect(search_result.total_trip_time).to eq('18 hour(s) and 31 minute(s)')
       end
     end
   end

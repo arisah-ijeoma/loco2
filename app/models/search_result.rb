@@ -17,7 +17,7 @@ class SearchResult
     end.inject(:+)
   end
 
-  def fastest_time
+  def trip_time
     connections.map do |cn|
       [cn.arrival, cn.departure].inject(:-)
     end.inject(:+)
@@ -34,7 +34,7 @@ class SearchResult
     overlay.map { |item| time_conversion(item) }
   end
 
-  def total_time
-    time_conversion(fastest_time + overlay.inject(:+))
+  def total_trip_time
+    time_conversion(trip_time + overlay.inject(:+))
   end
 end
