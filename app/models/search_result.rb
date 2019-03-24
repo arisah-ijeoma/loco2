@@ -18,15 +18,7 @@ class SearchResult
 
   def fastest_time
     connections.map do |cn|
-      [arrival_time(cn), departure_time(cn)].inject(:-)
+      [cn.arrival, cn.departure].inject(:-)
     end.inject(:+)
-  end
-
-  def arrival_time(cn)
-    DateTime.parse(cn.arrival_time).to_time.utc
-  end
-
-  def departure_time(cn)
-    DateTime.parse(cn.departure_time).to_time.utc
   end
 end

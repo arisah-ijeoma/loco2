@@ -13,4 +13,12 @@ class Connection
     @arrival_time = connection['ArrivalTime']
     @train_name = connection['TrainName']
   end
+
+  def arrival
+    DateTime.parse(arrival_time).to_time.utc
+  end
+
+  def departure
+    DateTime.parse(departure_time).to_time.utc
+  end
 end
