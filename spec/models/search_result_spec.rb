@@ -19,7 +19,7 @@ describe 'search results' do
     # the first result has 2 connections
     describe 'time before connection 2' do
       it 'returns correct data' do
-        expect(search_result.overlay.first).to eq('1 hour(s) and 15 minute(s)')
+        expect(search_result.formatted_overlay.first).to eq('1 hour(s) and 15 minute(s)')
       end
     end
 
@@ -41,7 +41,7 @@ describe 'search results' do
     # the second result has 2 connections
     describe 'time before connection 2' do
       it 'has correct data' do
-        expect(search_result.overlay.first).to eq('0 hour(s) and 44 minute(s)')
+        expect(search_result.formatted_overlay.first).to eq('0 hour(s) and 44 minute(s)')
       end
     end
 
@@ -64,13 +64,13 @@ describe 'search results' do
     describe 'time before next connection' do
       describe 'time before connection 2' do
         it 'has correct data' do
-          expect(search_result.overlay.first).to eq('3 hour(s) and 22 minute(s)')
+          expect(search_result.formatted_overlay.first).to eq('3 hour(s) and 22 minute(s)')
         end
       end
 
       describe 'time before connection 3' do
         it 'returns correct data' do
-          expect(search_result.overlay.second).to eq('3 hour(s) and 9 minute(s)')
+          expect(search_result.formatted_overlay.second).to eq('3 hour(s) and 9 minute(s)')
         end
       end
     end

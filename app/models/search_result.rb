@@ -24,11 +24,17 @@ class SearchResult
   end
 
   def overlay
-    overlay = connections.map.with_index do |cn, i|
+    connections.map.with_index do |cn, i|
       next if i.zero?
       [cn.departure, connections[i - 1].arrival].inject(:-)
     end.compact
+  end
 
+  def formatted_overlay
     overlay.map { |item| time_conversion(item) }
+  end
+
+  def total_time
+    time_conversion(fastest_time + overlay.inject(:+))
   end
 end
