@@ -21,4 +21,17 @@ class Connection
   def departure
     DateTime.parse(departure_time).to_time.utc
   end
+
+  def duration_in_hrs_mins
+    duration = arrival - departure
+    time_conversion(duration)
+  end
+
+  private
+
+  def time_conversion(duration)
+    hours = (duration / 3600).to_i
+    minutes = ((duration / 60) % 60).to_i
+    "#{hours}:#{minutes}"
+  end
 end
