@@ -17,10 +17,15 @@ describe 'search results' do
     end
 
     # the first result has 2 connections
-
     describe 'time before connection 2' do
-      it 'has correct data' do
+      it 'returns correct data' do
         expect(search_result.overlay.first).to eq('1 hour(s) and 15 minute(s)')
+      end
+    end
+
+    describe 'journey duration' do
+      it 'returns correct data' do
+        expect(search_result.total_time).to eq('5 hour(s) and 54 minute(s)')
       end
     end
   end
@@ -28,18 +33,21 @@ describe 'search results' do
   describe 'result 2' do
     let(:result) { results.second }
 
-    it 'has correct details' do
+    it 'returns correct details' do
       expect(search_result.id).to eq('L2FSF4')
       expect(connections.count).to eq(2)
     end
 
-    describe 'time before next connection' do
-      # the second result has 2 connections
+    # the second result has 2 connections
+    describe 'time before connection 2' do
+      it 'has correct data' do
+        expect(search_result.overlay.first).to eq('0 hour(s) and 44 minute(s)')
+      end
+    end
 
-      describe 'time before connection 2' do
-        it 'has correct data' do
-          expect(search_result.overlay.first).to eq('0 hour(s) and 44 minute(s)')
-        end
+    describe 'journey duration' do
+      it 'returns correct data' do
+        expect(search_result.total_time).to eq('5 hour(s) and 41 minute(s)')
       end
     end
   end
@@ -52,9 +60,8 @@ describe 'search results' do
       expect(connections.count).to eq(3)
     end
 
+    # the third result has 3 connections
     describe 'time before next connection' do
-      # the third result has 3 connections
-
       describe 'time before connection 2' do
         it 'has correct data' do
           expect(search_result.overlay.first).to eq('3 hour(s) and 22 minute(s)')
@@ -62,9 +69,15 @@ describe 'search results' do
       end
 
       describe 'time before connection 3' do
-        it 'has correct data' do
+        it 'returns correct data' do
           expect(search_result.overlay.second).to eq('3 hour(s) and 9 minute(s)')
         end
+      end
+    end
+
+    describe 'journey duration' do
+      it 'returns correct data' do
+        expect(search_result.total_time).to eq('18 hour(s) and 31 minute(s)')
       end
     end
   end
