@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-# refactor tests after work completion
 
 describe 'search' do
-  let(:file) { file_fixture('search.xml') }
-  let(:search) { Search.new(file) }
+  include_examples 'shared_variables'
 
   describe 'search results' do
     it 'has the correct number of search results' do

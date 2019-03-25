@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe 'connections' do
-  let(:file) { file_fixture('search.xml') }
-  let(:results) { Search.new(file).results }
+  include_examples 'shared_variables'
+
   let(:result) { results.third }
   let(:search_result) { SearchResult.new(result) }
   let(:connections) { search_result.connections }
