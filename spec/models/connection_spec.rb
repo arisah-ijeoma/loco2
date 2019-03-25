@@ -22,9 +22,9 @@ describe 'connections' do
         expect(connection.fares.count).to eq(2)
       end
 
-      describe '#formatted_duration' do
+      describe '#duration_in_hrs_mins' do
         it 'converts duration correctly' do
-          expect(connection.formatted_duration).to eq('2 hour(s) and 15 minute(s)')
+          expect(connection.duration_in_hrs_mins).to eq('2 hour(s) and 15 minute(s)')
         end
       end
     end
@@ -41,9 +41,9 @@ describe 'connections' do
         expect(connection.fares.count).to eq(2)
       end
 
-      describe '#formatted_duration' do
+      describe '#duration_in_hrs_mins' do
         it 'converts duration correctly' do
-          expect(connection.formatted_duration).to eq('8 hour(s) and 23 minute(s)')
+          expect(connection.duration_in_hrs_mins).to eq('8 hour(s) and 23 minute(s)')
         end
       end
     end
@@ -60,9 +60,9 @@ describe 'connections' do
         expect(connection.fares.count).to eq(2)
       end
 
-      describe '#formatted_duration' do
+      describe '#duration_in_hrs_mins' do
         it 'converts duration correctly' do
-          expect(connection.formatted_duration).to eq('1 hour(s) and 22 minute(s)')
+          expect(connection.duration_in_hrs_mins).to eq('1 hour(s) and 22 minute(s)')
         end
       end
     end

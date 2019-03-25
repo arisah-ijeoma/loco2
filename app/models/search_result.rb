@@ -31,7 +31,7 @@ class SearchResult
     end.compact
   end
 
-  def formatted_overlay
+  def overlay_in_hrs_mins
     overlay.map { |item| time_conversion(item) }
   end
 
@@ -39,7 +39,7 @@ class SearchResult
     trip_time + overlay.inject(:+)
   end
 
-  def formatted_total_trip_time
+  def total_trip_time_in_hrs_mins
     time_conversion(total_trip_time)
   end
 end
