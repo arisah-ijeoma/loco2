@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'search results' do
+describe SearchResult do
   include_examples 'shared_variables'
 
   let(:search_result) { SearchResult.new(result) }

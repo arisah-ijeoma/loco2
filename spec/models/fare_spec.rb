@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'fares' do
+describe Fare do
   include_examples 'shared_variables'
 
   let(:result) { results.second }

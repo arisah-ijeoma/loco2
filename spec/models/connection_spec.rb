@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'connections' do
+describe Connection do
   include_examples 'shared_variables'
 
   let(:result) { results.third }

@@ -2,19 +2,23 @@
 
 require 'rails_helper'
 
-describe 'script' do
+describe Script do
   describe '.user_input' do
     describe do
+      before { allow(STDIN).to receive(:gets) { '1' } }
+
       it 'returns only valid user input' do
-        allow(STDIN).to receive(:gets) { '1' }
         expect(Script.user_input).to eq('1')
       end
     end
 
     describe 'invalid input' do
-      it 'does not return invalid input' do
+      before do
         allow(STDIN).to receive(:gets) { '3' }
         allow(STDIN).to receive(:gets) { '2' }
+      end
+
+      it 'does not return invalid input' do
         expect(Script.user_input).not_to eq('3')
         expect(Script.user_input).to eq('2')
       end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'search' do
+describe Search do
   include_examples 'shared_variables'
 
   describe 'search results' do
