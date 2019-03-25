@@ -23,7 +23,7 @@ class Connection
     DateTime.parse(departure_time).to_time.utc
   end
 
-  def duration_in_hrs_mins
+  def formatted_duration
     duration = arrival - departure
     time_conversion(duration)
   end
