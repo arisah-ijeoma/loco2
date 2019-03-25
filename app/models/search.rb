@@ -8,9 +8,7 @@ class Search
   end
 
   def results
-    search_hash['SearchResult'].each do |result|
-      SearchResult.new(result)
-    end
+    @results ||= search_hash['SearchResult']
   end
 
   def search_hash
@@ -23,19 +21,19 @@ class Search
 
   def cheapest
     # returns the cheapest total along with the search result index
-    min_index = search_hash['SearchResult'].map do |result|
+    min_index = results.map do |result|
       SearchResult.new(result).minimum_fares
     end.each_with_index.min
 
-    search_hash['SearchResult'][min_index.last]
+    results[min_index.last]
   end
 
   def quickest
     # returns the quickest route along with the search result index
-    min_index = search_hash['SearchResult'].map do |result|
+    min_index = results.map do |result|
       SearchResult.new(result).total_trip_time
     end.each_with_index.min
 
-    search_hash['SearchResult'][min_index.last]
+    results[min_index.last]
   end
 end
