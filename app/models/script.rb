@@ -2,8 +2,7 @@
 
 class Script
   def self.prompter
-    prompt = ''
-    prompt += "How would you like the output?\n"
+    prompt = "How would you like the output?\n"
     prompt += 'Enter 1 to print to the terminal, 2 to write to a file or 0 to exit: '
     prompt
   end
@@ -19,12 +18,7 @@ class Script
   def self.parser
     search = Search.new('./task/search.xml')
 
-    pp search
-
-    details = ''
-    details += "There are #{search.results.count} search results\n\n"
-
-    # parser - push line by line string into empty string
+    details = "There are #{search.results.count} search results\n\n"
     search.results.each_with_index do |result, i|
       search_result = SearchResult.new(result)
       details += "#{i + 1}.\n"
@@ -50,10 +44,8 @@ class Script
       end
     end
 
-
     details += "The cheapest trip on this list is the trip with ID #{search.cheapest['ID']}\n"
     details += "The quickest trip on this list is the trip with ID #{search.quickest['ID']}\n"
-
     details
   end
 end
