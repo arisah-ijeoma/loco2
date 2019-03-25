@@ -15,16 +15,16 @@ class Connection
     @train_name = connection['TrainName']
   end
 
-  def arrival
+  def arrival_in_utc
     DateTime.parse(arrival_time).to_time.utc
   end
 
-  def departure
+  def departure_in_utc
     DateTime.parse(departure_time).to_time.utc
   end
 
   def duration_in_hrs_mins
-    duration = arrival - departure
+    duration = arrival_in_utc - departure_in_utc
     time_conversion(duration)
   end
 end

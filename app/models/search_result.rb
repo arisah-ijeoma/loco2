@@ -19,7 +19,7 @@ class SearchResult
 
   def trip_time
     connections.map do |cn|
-      [cn.arrival, cn.departure].inject(:-)
+      [cn.arrival_in_utc, cn.departure_in_utc].inject(:-)
     end.inject(:+)
   end
 
@@ -27,7 +27,7 @@ class SearchResult
   def overlay
     connections.map.with_index do |cn, i|
       next if i.zero?
-      [cn.departure, connections[i - 1].arrival].inject(:-)
+      [cn.departure_in_utc, connections[i - 1].arrival_in_utc].inject(:-)
     end.compact
   end
 
