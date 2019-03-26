@@ -4,7 +4,7 @@ require 'active_support/core_ext/hash'
 require './app/models/utilities'
 require './app/models/search'
 require './app/models/search_result'
-require './app/models/connection'
+require './app/models/train_connection'
 require './app/models/fare'
 require './app/models/script'
 
