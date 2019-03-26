@@ -37,7 +37,7 @@ class Script
         details += " - The duration of this journey is #{cn.duration_in_hrs_mins}\n"
         details += "   There are #{cn.fares.count} classes of fare(s) for this journey\n"
         cn.fares.each do |f|
-          details += "  - The #{f.name} fare costs GBP#{format('%.2f', f.price)}\n"
+          details += "   - The #{f.name} fare costs GBP#{format('%.2f', f.price)}\n"
         end
 
         details += "\n"

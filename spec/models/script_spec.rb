@@ -70,8 +70,8 @@ describe Script do
         " - It will arrive in Paris Nord at 2015-07-11 10:41:00 UTC\n" +
         " - The duration of this journey is 2 hour(s) and 18 minute(s)\n" +
         "   There are 2 classes of fare(s) for this journey\n" +
-        "  - The Standard Class fare costs GBP79.00\n" +
-        "  - The Standard Premier fare costs GBP159.00\n" +
+        "   - The Standard Class fare costs GBP79.00\n" +
+        "   - The Standard Premier fare costs GBP159.00\n" +
         "\n" +
         "Connection 2\n" +
         " - Train name: TGV 2N2\n" +
@@ -79,8 +79,8 @@ describe Script do
         " - It will arrive in Barcelona Sants at 2015-07-11 18:17:00 UTC\n" +
         " - The duration of this journey is 6 hour(s) and 21 minute(s)\n" +
         "   There are 2 classes of fare(s) for this journey\n" +
-        "  - The Standard Class fare costs GBP50.00\n" +
-        "  - The First Class fare costs GBP75.00\n" +
+        "   - The Standard Class fare costs GBP50.00\n" +
+        "   - The First Class fare costs GBP75.00\n" +
         "\n" +
         "The cheapest trip on this list is the trip with ID F4S1DS\n" +
         "The quickest trip on this list is the trip with ID F4S1DS\n"
