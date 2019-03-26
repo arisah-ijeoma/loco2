@@ -17,4 +17,5 @@ if user_input == '1'
   print Script.parser
 elsif user_input == '2'
   File.open('search_result.txt', 'w') { |file| file.puts(Script.parser) }
+  print "You can find the file in #{Dir.pwd}"
 end
