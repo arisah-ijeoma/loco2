@@ -7,7 +7,7 @@ class SearchResult
   def initialize(search_result)
     @id = search_result['ID']
     @connections = search_result['Connections']['Connection'].map do |cn|
-      Connection.new(cn)
+      TrainConnection.new(cn)
     end
   end
 

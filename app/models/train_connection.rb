@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Connection
+class TrainConnection
   include Utilities
   attr_accessor :start, :finish, :departure_time, :arrival_time, :train_name, :fares
 
