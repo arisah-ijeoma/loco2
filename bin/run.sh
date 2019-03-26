@@ -6,6 +6,7 @@ bundle install
 echo '*******************'
 echo '*******************'
 echo '*******************'
+RAILS_ENV=test rake db:create
 rspec
 
 echo '*******************'
