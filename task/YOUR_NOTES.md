@@ -1,5 +1,7 @@
 ## Getting started
-This program assumes that your ruby version is set to 2.5.1
+This program assumes the following:
+1. Your ruby version is set to 2.5.1
+1. You have postgresql installed and running
 
 To successfully run this program, please follow the instructions below:
 1. Download the zip file attached in the email
